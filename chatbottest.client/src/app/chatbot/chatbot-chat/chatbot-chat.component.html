@@ -1,0 +1,19 @@
+<div *ngIf="messages && messages.length == 0">
+    <input matInput [(ngModel)]="senderName"/>
+    <button (click)="onGetChatClick()">
+        Get Chat
+    </button>
+</div>
+<div *ngIf="speakerId">
+    <div>
+        <div *ngFor="let message of messages">
+            <app-chatbot-message
+                [messageToDisplay]="message">
+            </app-chatbot-message>
+        </div>
+    </div>
+    <input matInput [(ngModel)]="newMessage"/>
+    <button (click)="onSendMessage()">
+        Send
+    </button>
+</div>
